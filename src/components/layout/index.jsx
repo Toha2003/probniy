@@ -1,21 +1,13 @@
-import React from "react";
-import { Container, Nav } from "react-bootstrap";
-import { NavLink, Outlet } from "react-router-dom";
+import { Container } from "react-bootstrap";
+import {  Outlet } from "react-router-dom";
+import Header from "../header";
 
 const Layout = () => {
   return (
     <Container>
-      <Nav className="d-flex justify-content-center">
-        <NavLink className="nav-link" to="/">
-          Home
-        </NavLink>
-        <NavLink className="nav-link" to="/card">
-          Link
-        </NavLink>
-        <NavLink className="nav-link" to="/counter">
-          Counter
-        </NavLink>
-      </Nav>
+    <header>
+      <Header/>
+    </header>
 
       <main>
         <Outlet />

@@ -1,11 +1,12 @@
 import PropTypes from 'prop-types';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 
 function ProductCard({name, description, price, id, image}) {
   return (
     <Card style={{height:420}} className=''>
-      <Card.Img style={{height:"200px", objectFit:"cover"}} variant="top" src={image} />
+      <LazyLoadImage effect="blur" style={{height:"200px", objectFit:"cover"}} variant="top" src={image} />
       <Card.Body className='d-flex flex-column justify-content-between'>
         <Card.Title >{name}</Card.Title>
         <Card.Text>

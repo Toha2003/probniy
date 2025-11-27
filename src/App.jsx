@@ -4,6 +4,7 @@ import HomePage from "./pages/HomePage";
 import CounterPage from "./pages/CounterPage";
 import CardPage from "./pages/CardPage";
 import Layout from "./components/layout";
+import 'react-lazy-load-image-component/src/effects/blur.css';
 
 function App() {
   return (

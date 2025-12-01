@@ -1,6 +1,7 @@
 export const UZ = {
     home: "Bosh sahifa",
-    link:"Link",
-    counter:"Counter",
-    allProduct:"Barcha mahsulotlar"
+    link:"Havola",
+    basket:"Savatcha",
+    allProduct:"Barcha mahsulotlar",
+    addCard:"Card ni qo'shish"
 }

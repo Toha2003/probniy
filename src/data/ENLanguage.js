@@ -1,6 +1,7 @@
 export const EN = {
     home:"Home",
     link:"Link",
-    counter:"Counter",
-    allProduct:"All Products"
+    basket:"Basket",
+    allProduct:"All Products",
+    addCard:"Add to Card"
 }

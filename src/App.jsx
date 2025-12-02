@@ -5,11 +5,13 @@ import CardPage from "./pages/CardPage";
 import Layout from "./components/layout";
 import 'react-lazy-load-image-component/src/effects/blur.css';
 import BasketPage from "./pages/BasketPage";
+import { ToastContainer } from "react-toastify";
 
 function App() {
   
   return (
     <BrowserRouter>
+    <ToastContainer/>
       <Routes>
         <Route path="/" element={<Layout/>}>
           <Route index element={<HomePage />} />

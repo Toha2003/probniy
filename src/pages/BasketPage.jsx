@@ -3,7 +3,8 @@
 import { useContext } from "react";
 import { ProductContext } from "../context/Contexts";
 import ProductCard from "../components/card/ProductCard";
-import DeleteIcon from '../assets/deleteIcon.png'
+import DeleteIcon from "../assets/deleteIcon.png";
+import { toast } from "react-toastify";
 
 const BasketPage = () => {
   // const [counter , setCounter] = useState(0)
@@ -31,12 +32,11 @@ const BasketPage = () => {
 
   // const [counter, dispatch] = useReducer(reducer, 0);
 
-  const { cart } = useContext(ProductContext);
-
-  const deleteProduct = (id)=>{
-    console.log(id);
-    
-  }
+  const { cart, setCart } = useContext(ProductContext);
+  const deleteProduct = (id) => {
+   setCart(cart.filter((el) => el.id !== id))
+   toast.success("mahsulot o'chirildi")
+  };
 
   return (
     <div className="pt-5 row">
@@ -47,9 +47,13 @@ const BasketPage = () => {
       <h1 className="pt-5">Saved Cards</h1>
 
       <div className="row">
-        {cart.map((el,index) => (
+        {cart.map((el, index) => (
           <div key={index} className="col-12 col-sm-6 col-md-4 col-lg-3  my-4">
-            <ProductCard deleteProduct={deleteProduct} {...el}  deleteIcon={DeleteIcon}/>
+            <ProductCard
+              deleteProduct={deleteProduct}
+              {...el}
+              deleteIcon={DeleteIcon}
+            />
           </div>
         ))}
       </div>

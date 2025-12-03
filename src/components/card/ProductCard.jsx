@@ -15,6 +15,7 @@ function ProductCard({
   image,
   deleteIcon,
   deleteProduct,
+  quantity
 }) {
   const { lang } = useContext(LanguageContext);
 
@@ -22,7 +23,19 @@ function ProductCard({
 
   const addToCart = (id) => {
     let product = productData.find((e) => e.id === id);
-    setCart([...cart, product]);
+    let chackCard = cart.find((e) => e.id === id);
+
+    if (chackCard) {
+      let newCart = cart.map((el) => {
+        if (el.id === id) {
+          el.quantity++;
+        }
+        return el;
+      });
+      setCart(newCart)
+    } else {
+      setCart([...cart, { ...product, quantity:1 }]);
+    }
     toast.success("Savatchaga qo'shildi");
   };
 
@@ -58,10 +71,10 @@ function ProductCard({
         <Card.Text>{description}</Card.Text>
         <Card.Text>{price}</Card.Text>
         <Button
-          variant={colorEdetor ? "secondary" : "primary"}
-          onClick={colorEdetor ? null : () => addToCart(id)}
+          variant={colorEdetor ? "success" : "primary"}
+          onClick={() => addToCart(id)}
         >
-          {lang.addCard} {id}
+          {lang.addCard} {quantity}
         </Button>
       </Card.Body>
     </Card>
@@ -76,5 +89,6 @@ ProductCard.propTypes = {
   image: PropTypes.string,
   deleteProduct: PropTypes.func,
   deleteIcon: PropTypes.string,
+  quantity:PropTypes.number,
 };
 export default ProductCard;

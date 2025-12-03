@@ -37,6 +37,7 @@ const BasketPage = () => {
    setCart(cart.filter((el) => el.id !== id))
    toast.success("mahsulot o'chirildi")
   };
+  
 
   return (
     <div className="pt-5 row">
@@ -49,7 +50,7 @@ const BasketPage = () => {
       <div className="row">
         {cart.map((el, index) => (
           <div key={index} className="col-12 col-sm-6 col-md-4 col-lg-3  my-4">
-            <ProductCard
+            <ProductCard quantity={cart.quantity}
               deleteProduct={deleteProduct}
               {...el}
               deleteIcon={DeleteIcon}

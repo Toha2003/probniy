@@ -15,7 +15,7 @@ function ProductCard({
   image,
   deleteIcon,
   deleteProduct,
-  quantity
+  quantity,
 }) {
   const { lang } = useContext(LanguageContext);
 
@@ -32,9 +32,9 @@ function ProductCard({
         }
         return el;
       });
-      setCart(newCart)
+      setCart(newCart);
     } else {
-      setCart([...cart, { ...product, quantity:1 }]);
+      setCart([...cart, { ...product, quantity: 1 }]);
     }
     toast.success("Savatchaga qo'shildi");
   };
@@ -89,6 +89,6 @@ ProductCard.propTypes = {
   image: PropTypes.string,
   deleteProduct: PropTypes.func,
   deleteIcon: PropTypes.string,
-  quantity:PropTypes.number,
+  quantity: PropTypes.number,
 };
 export default ProductCard;
